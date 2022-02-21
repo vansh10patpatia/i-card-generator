@@ -9,7 +9,6 @@ const adminValidator = require("../Validator");
 
 router.post("/login", async (req, res) => {
 	const { userid, password } = req.body;
-
 	const data = { userid, password };
 
 	//validating the data using resultfrom joi
@@ -28,10 +27,10 @@ router.post("/login", async (req, res) => {
 		try {
 			//find the user with the request userid if it exists then return user not found
 
-			const admin = await Student.findOne({
-				$and: [{ userid: userid }, { typeUser: 0 }],
+			const student = await Student.findOne({
+				$and: [{ userid: userid }],
 			});
-			if (!admin) {
+			if (!student) {
 				res.status(404).json({
 					status: false,
 					error: "userid",
@@ -39,7 +38,7 @@ router.post("/login", async (req, res) => {
 				});
 			} else {
 				//else verify the password
-				const passVerifier = await verifyPass(password, admin.password);
+				const passVerifier = await verifyPass(password, student.password);
 
 				if (!passVerifier) {
 					//if it ggives the error then will return error
@@ -50,7 +49,7 @@ router.post("/login", async (req, res) => {
 					});
 				} else {
 					//Generating JWT token
-					const newJWT = await generateJWT(admin);
+					const newJWT = await generateJWT(student);
 					if (!newJWT) {
 						//if JWT fails then error
 						res.status(500).json({
@@ -63,7 +62,7 @@ router.post("/login", async (req, res) => {
 							status: true,
 							message: "Login Successful",
 							accessToken: newJWT,
-							user: admin,
+							user: student,
 						});
 					}
 				}
@@ -75,5 +74,7 @@ router.post("/login", async (req, res) => {
 		}
 	}
 });
+
+// console.log(router);
 
 module.exports = router;
