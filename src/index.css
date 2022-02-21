@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -224,3 +225,12 @@ body{
 .field-container{
   margin-top:10px !important;
 }
+
+.id-card-text-container{color: #fff;padding-bottom: 9px;}
+.id-card-container{width: 430px;position: relative; background-color: #333; border-radius: 20px; }
+.id-card-img-container { position: relative;}
+.id-card-img-container img{ width: 100%;}
+.top-text-div{position: absolute;display: flex;align-items: center; color: #fff; top: 10px;left: 15px;}
+.top-text-div p{margin-left: 10px;width: 250px;font-size: 18px;font-weight: 700;}
+/* .avatar-container {position: absolute;} */
+.avatar-container img{width: 90px;position: absolute;bottom: -10px;left: 165px;}
