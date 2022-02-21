@@ -4,7 +4,7 @@ import { combineReducers } from 'redux';
 const initial_user_state = {
   authStatus: false,
   userDetails: {},
-  accessToken: '',
+  accessToken: null,
 };
 
 const user_reducer = (state = initial_user_state, action) => {
