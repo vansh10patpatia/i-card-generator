@@ -254,7 +254,7 @@ body{
 .avatar-container img{width: 90px;position: absolute;bottom: -10px;left: 165px;}
 
 
-
+.header{padding-top: 3px;}
 .home-page-all-containers{position: relative;}
 .i-card-girl-image img{position: absolute;left: 0;width: 44vw;z-index: -1;}
 .css-1v5z4dq-MuiPaper-root-MuiCard-root{width: 45%;    background-size: 100%;margin-top: 0;margin-left: 0;}
@@ -277,12 +277,14 @@ body{
     .i-card-girl-image img{width: 100vw;top: -100px;left: -50px;}
   }
   @media (max-width:600px) {
+    .main-containers-for-page{margin-top: 50px;}
     .css-1v5z4dq-MuiPaper-root-MuiCard-root{
       
       height: unset !important;
     }
     .css-1sdej7c-MuiTypography-root{font-size: 24px !important;}
     .css-1v5z4dq-MuiPaper-root-MuiCard-root{width: 94%;}
+    .Box1{margin-top: 6rem;}
   }
   @media (max-width:400px) {
     .i-card-wrapper{overflow-x: auto;}
