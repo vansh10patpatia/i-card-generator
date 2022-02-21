@@ -2,7 +2,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 var bodyParser = require("body-parser");
-// var cors = require("cors");
+var cors = require("cors");
 // const YAML = require("yamljs");
 
 
@@ -23,7 +23,7 @@ mongoose.connect(db, () => {
 const app = express();
 // app.use(express.static("public"));
 
-// app.use(cors());
+app.use(cors());
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
