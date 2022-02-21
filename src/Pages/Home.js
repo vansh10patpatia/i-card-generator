@@ -94,7 +94,7 @@ function Form(){
            <Navbar/>
            <Box className='Box1'>
             <Typography className='heading-name' variant="h4" component="h3">
-            Fill in the details
+                Fill in the details
             </Typography>
         <Grid container spacing={2}>
             <Grid item xs={12}  sm={4} md={4}>

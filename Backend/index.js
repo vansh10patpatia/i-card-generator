@@ -3,7 +3,7 @@ console.log("Hello Student Developer");
 // ------------------------All files ---------------------------------
 
 const express = require("express");
-// const loginRoute = require("./Express Routers/Auth/Auth");
+const loginRoute = require("./Express Routers/Auth");
 // const createCourse = require("./Express Routers/Course Apis/Course");
 // const createSubject = require("./Express Routers/Subject Apis/Subject");
 // const createBoard = require("./Express Routers/Board Apis/Board");
@@ -65,7 +65,7 @@ app.use(bodyParser.json());
 
 // app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerJsDocs));
 
-// app.use("/v1/auth", loginRoute);
+app.use("/v1/auth", loginRoute);
 // app.use("/v1/course", createCourse);
 // app.use("/v1/subject", createSubject);
 // app.use("/v1/board", createBoard);
