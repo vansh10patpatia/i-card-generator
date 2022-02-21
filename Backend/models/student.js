@@ -63,47 +63,47 @@ const Student = mongoose.model("Student", Students);
 
 exports.Student = Student;
 
-const StudentSessionSchema = new Schema(
-	{
-		token: {
-			type: String,
-			minLength: 256,
+// const StudentSessionSchema = new Schema(
+// 	{
+// 		token: {
+// 			type: String,
+// 			minLength: 256,
 
-			required: true,
-		},
-		userID: {
-			type: Schema.Types.ObjectId,
-			ref: "Teacher",
-		},
-		lastAccessedAt: {
-			type: Date,
-			default: new Date(),
-		},
-		isActive: {
-			type: Boolean,
-			default: true,
-		},
-		tokenCreationDetails: {
-			ip: {
-				type: String,
-				default: "",
-			},
-			useragent: {
-				type: String,
-				default: "",
-			},
-			os: {
-				type: String,
-				default: "",
-			},
-		},
-		sessionLogs: [
-			{
-				type: String,
-			},
-		],
-	},
-	{ timestamps: true }
-);
-const StudentSessionModel = mongoose.model("student-session", StudentSessionSchema);
-exports.StudentSessionModel = StudentSessionModel;
+// 			required: true,
+// 		},
+// 		userID: {
+// 			type: Schema.Types.ObjectId,
+// 			ref: "Teacher",
+// 		},
+// 		lastAccessedAt: {
+// 			type: Date,
+// 			default: new Date(),
+// 		},
+// 		isActive: {
+// 			type: Boolean,
+// 			default: true,
+// 		},
+// 		tokenCreationDetails: {
+// 			ip: {
+// 				type: String,
+// 				default: "",
+// 			},
+// 			useragent: {
+// 				type: String,
+// 				default: "",
+// 			},
+// 			os: {
+// 				type: String,
+// 				default: "",
+// 			},
+// 		},
+// 		sessionLogs: [
+// 			{
+// 				type: String,
+// 			},
+// 		],
+// 	},
+// 	{ timestamps: true }
+// );
+// const StudentSessionModel = mongoose.model("student-session", StudentSessionSchema);
+// exports.StudentSessionModel = StudentSessionModel;
