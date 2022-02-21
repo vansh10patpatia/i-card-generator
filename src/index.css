@@ -245,10 +245,46 @@ body{
   box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 .id-card-text-container{color: #fff;padding-bottom: 9px;}
-.id-card-container{width: 430px;position: relative; background-color: #333; border-radius: 20px; }
+.id-card-container{width: 430px;position: relative; background-color: #333; border-radius: 20px;margin-right: -20px; }
 .id-card-img-container { position: relative;}
 .id-card-img-container img{ width: 100%;}
 .top-text-div{position: absolute;display: flex;align-items: center; color: #fff; top: 10px;left: 15px;}
 .top-text-div p{margin-left: 10px;width: 250px;font-size: 18px;font-weight: 700;}
 /* .avatar-container {position: absolute;} */
 .avatar-container img{width: 90px;position: absolute;bottom: -10px;left: 165px;}
+
+
+
+.home-page-all-containers{position: relative;}
+.i-card-girl-image img{position: absolute;left: 0;width: 44vw;z-index: -1;}
+.css-1v5z4dq-MuiPaper-root-MuiCard-root{width: 45%;    background-size: 100%;margin-top: 0;margin-left: 0;}
+.main-containers-for-page{display: flex;width: 96%;margin: 0 auto; justify-content: flex-end;margin-top: 100px;margin-bottom: 50px;}
+@media (max-width:1600px) {
+  .id-card-container{width: 350px;}
+  .id-card-text-container{padding-bottom: 1px;}
+  .avatar-container img{left: 127px;width: 80px;}
+  .id-card-text-container h1{ margin-top: 3px;}
+  .id-card-text-container p{ margin-top: 3px;}
+  .main-containers-for-page{align-items: flex-start;}
+  .admin-login-card{height: 484px !important;}
+  .admin-login-welcome{margin-bottom: 20px !important;}
+  .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{height: 19px !important;}
+}
+  @media (max-width:1000px) {
+    .main-containers-for-page{flex-direction: column-reverse;align-items: center;}
+    .css-1v5z4dq-MuiPaper-root-MuiCard-root{width: 84%;}
+    .id-card-container{margin-right: 0;margin-top: 20px;}
+    .i-card-girl-image img{width: 100vw;top: -100px;left: -50px;}
+  }
+  @media (max-width:600px) {
+    .css-1v5z4dq-MuiPaper-root-MuiCard-root{
+      
+      height: unset !important;
+    }
+    .css-1sdej7c-MuiTypography-root{font-size: 24px !important;}
+    .css-1v5z4dq-MuiPaper-root-MuiCard-root{width: 94%;}
+  }
+  @media (max-width:400px) {
+    .i-card-wrapper{overflow-x: auto;}
+
+  }
