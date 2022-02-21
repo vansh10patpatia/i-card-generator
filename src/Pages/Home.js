@@ -74,7 +74,7 @@ function Form(){
     }, [printRef])
 
     function downloadImage(){
-        domtoimage.toBlob(document.getElementById('i-card'))
+        domtoimage.toBlob(document.getElementById('i-card-container'))
             .then(function (blob) {
                 require("downloadjs")(blob, 'my-node.png');
                 // window.saveAs(blob, 'my-node.png');
@@ -104,7 +104,7 @@ function Form(){
                 <Grid container spacing={-40}>
                     <Grid item xs={12} sm={5} md={5} className='i-card-grid'>
                     
-                        <Card sx={{ maxWidth: 375 }} style={{borderRadius:13}} className='i-card' id='i-card' ref={printRef}>
+                        {/* <Card sx={{ maxWidth: 375 }} style={{borderRadius:13}} className='i-card' id='i-card' ref={printRef}>
                             <img src={require('../assets/icon.png')} className='college-icon' />
                             <Typography gutterBottom variant="h5" component="div" className='college-name'>
                                  Graphic Era Deemed to be University
@@ -141,7 +141,26 @@ function Form(){
                                 
                             </CardContent>
        
-                        </Card>
+                        </Card> */}
+                        <div className="id-card-container" id='i-card-container' ref={printRef}>
+                            <div className="id-card-img-container">
+                                <img src={Eraimage} alt="" />
+                                <div className="avatar-container">
+                                    <img src={image} alt="" />
+                                </div>
+                            </div>
+                            <div className="top-text-div" >
+                                <img src={require('../assets/icon.png')} alt="" />
+                                <p>Graphic Era Deemed to be University</p>
+                            </div>
+                            <div className="id-card-text-container">
+                                <h1>{name}</h1>
+                                <p>{phno}</p>
+                                <p> Id : {studentId} </p>
+                                <p>{email}</p>
+                                <p>Session : {session}</p>
+                            </div>
+                        </div>
                     </Grid>
                     <Grid item xs={12}  sm={7} md={7}>
                     {/* <Grid item xs={11} sm={12} md={12} > */}
@@ -224,6 +243,7 @@ function Form(){
        
           
         </Box>
+       
         </>
 
     )
