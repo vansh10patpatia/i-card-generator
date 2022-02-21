@@ -164,6 +164,7 @@ function Form(){
                     </Grid>
                     <Grid item xs={12}  sm={7} md={7}>
                     {/* <Grid item xs={11} sm={12} md={12} > */}
+                    {/* Dhairya This is the card starting */}
                     <Card variant="outlined" className="admin-login-card">
                         <CardContent>
                             <Typography variant="h4" color="text.secondary" className="admin-login-welcome" style={{fontWeight: 600}} gutterBottom>
@@ -235,6 +236,8 @@ function Form(){
                             </Typography>
                         </CardContent>
                     </Card>
+                    {/* Dhairya This is the card ending */}
+                        
                   </Grid>
             </Grid>
         </Grid>
