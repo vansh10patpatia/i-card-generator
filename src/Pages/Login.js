@@ -81,13 +81,25 @@ export default function Login(props){
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
     return (
         <>
-        <Box sx={{ flexGrow: 1 }} className="admin-login-container">
+        {/* <Box sx={{ flexGrow: 1 }} className="admin-login-container">
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}  >
                 <Grid item xs={11} sm={6} md={6} >
                     <img src={require('../assets/loginImage.png')} className="login-image" />
                 </Grid>
                 <Grid item xs={11} sm={5} md={5} className="admin-login-screen-grid">
-                    <Card variant="outlined" className="admin-login-screen-card">
+                    
+                    
+                        
+                </Grid>
+            </Grid>
+        </Box> */}
+        <div className="login-page-container">
+        <div className="login-page-img-container">
+        <img src={require('../assets/loginImage.png')}   />
+        </div>
+        <div className="login-page-card-container">
+            
+        <Card variant="outlined" className="admin-login-screen-card">
                         <CardContent>
                             <Typography variant="h4" color="text.secondary" className="admin-login-welcome" style={{fontWeight: 600}} gutterBottom>
                                 Hey, Welcome Back!
@@ -112,11 +124,8 @@ export default function Login(props){
                             </Typography>
                         </CardContent>
                     </Card>
-                    
-                        
-                </Grid>
-            </Grid>
-        </Box>
+                                </div>
+                                </div>
         </>
     );
 }

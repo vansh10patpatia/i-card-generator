@@ -290,3 +290,29 @@ body{
     .i-card-wrapper{overflow-x: auto;}
 
   }
+  .login-page-container{
+    display: flex;min-height: 100vh;position: relative;
+    background: linear-gradient(#edaef9,#81b1fa);justify-content: space-around;
+  }
+  .login-page-img-container img{width: 45vw;position: absolute;left: 0;}
+  .login-page-card-container{width: 40%;}
+  .login-page-card-container .css-1v5z4dq-MuiPaper-root-MuiCard-root{width: 100%;margin-top: 14%;}
+  @media (max-width:1200px) {
+    .login-page-card-container{width: 40%;}
+    .login-page-card-container .css-1v5z4dq-MuiPaper-root-MuiCard-root{padding-top: 0 !important;padding-bottom: 0 !important;}
+    .login-page-card-container .css-1sdej7c-MuiTypography-root{font-size: 28px;}
+    .login-page-card-container .css-37jdci-MuiTypography-root{font-size: 14px;}
+    .login-page-card-container .admin-login-welcome{margin-top: 10px !important;margin-bottom: 10px !important;}
+    .login-page-card-container .continue-button{margin-top: 10px !important;width: 150px;}
+    .login-page-card-container .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{height: 10px !important;}
+    
+    
+  }
+  @media (max-width:800px) {
+    .login-page-img-container{    position: absolute;
+      left: -50px;top: -30px;
+      z-index: 0;}
+      .login-page-img-container img{width: 80vw;}
+      .login-page-card-container{z-index: 1;}
+      .login-page-card-container{width: 85%;}
+  }
