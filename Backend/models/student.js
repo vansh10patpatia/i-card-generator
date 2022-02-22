@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
-const Students = new Schema(
+const studentSchema = new Schema(
 	{
         userid:{
 			type: Number,
@@ -59,9 +59,9 @@ const Students = new Schema(
 	{ timestamps: true }
 );
 
-const Student = mongoose.model("Student", Students);
+const Student = mongoose.model("Student", studentSchema);
 
-exports.Student = Student;
+module.exports = Student;
 
 // const StudentSessionSchema = new Schema(
 // 	{

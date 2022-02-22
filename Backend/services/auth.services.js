@@ -1,14 +1,13 @@
 require("dotenv").config();
 const createError = require("http-errors");
-
 const bcrypt = require("bcryptjs");
 const jwt = require("../utils/jwt");
-const { Student } = require("../models/student")
-console.log(Student);
+const { Student } = require("../models");
+
 class AuthService {
   static register = async data => {
-    console.log("ping");
-    return {"yes":"working"}
+    console.log(data);
+    return data
     // const { userid} = data;
 
     //   let test_user = await Student.find({ userid:userid });
@@ -44,9 +43,10 @@ class AuthService {
   };
 
   static all = async () => {
-      const allUsers = await Student.find();
+    return "hi";
+    //   const allUsers = await Student.find();
 
-    return allUsers;
+    // return allUsers;
   };
 }
 
