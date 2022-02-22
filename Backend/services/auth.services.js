@@ -7,28 +7,31 @@ const { Student } = require("../models");
 class AuthService {
   static register = async data => {
     console.log(data);
-    return data
-    // const { userid} = data;
+    // return data
+    const { userid} = data;
 
-    //   let test_user = await Student.find({ userid:userid });
-    // if (test_user) {
-    //   throw createError.BadRequest("Email taken");
-    // }
-    // data.password = bcrypt.hashSync(data.password, 8);
-    // let user = await Student.create({
-    //   userid: userid,
-    //   password: data.password,
-    // });
+      let test_user = await Student.find({ userid:userid });
+      // console.log(test_user);
+      if (test_user.userid) {
+        throw createError.BadRequest("Id taken");
+      }
+    data.password = bcrypt.hashSync(data.password, 8);
+    let user = await Student.create({
+      userid: userid,
+      password: data.password,
+    });
     // console.log(user);
 
-    // data.accessToken = await jwt.signAccessToken(user);
-    // return data;
+    data.accessToken = await jwt.signAccessToken(user);
+    return data;
   };
 
-  static login = async data => {
-    const { email, password } = data;
+  static login = async (data) => {
+    const request = JSON.parse(JSON.stringify(data))
+    const { userid, password } = JSON.parse(JSON.stringify(data));
+    console.log(request);
 
-    const user = await Student.findOne({ email: email });
+    const user = await Student.findOne({ userid: userid });
     if (!user) {
       throw createError.BadRequest("User not found");
     }
@@ -43,10 +46,10 @@ class AuthService {
   };
 
   static all = async () => {
-    return "hi";
-    //   const allUsers = await Student.find();
+    // return "hi";
+    const allUsers = await Student.find();
 
-    // return allUsers;
+    return allUsers;
   };
 }
 

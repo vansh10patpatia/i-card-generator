@@ -22,39 +22,40 @@ const studentSchema = new Schema(
 			type: String,
 			unique: true,
 			min: 8,
+			default:''
 		},
-		profileImage: {
-			type: String,
-			default: "",
-		},
+		// profileImage: {
+		// 	type: String,
+		// 	default: "",
+		// },
 		phno: {
 			type: String,
 			default: "",
 		},
         session: {
-			type: Number,
-			default: null,
+			type: String,
+			default: '',
 		},
-        typeUser: {
-			type: Number,
-			enum: [0, 1, 2],
-			default: 2,
-		},
+        // typeUser: {
+		// 	type: Number,
+		// 	enum: [0, 1, 2],
+		// 	default: 2,
+		// },
 	
-		tokenAuth: {
-			token: {
-				type: String,
-				default: "",
-			},
-			secret: {
-				type: String,
-				default: "",
-			},
-			time: {
-				type: Date,
-				default: "",
-			},
-		},
+		// tokenAuth: {
+		// 	token: {
+		// 		type: String,
+		// 		default: "",
+		// 	},
+		// 	secret: {
+		// 		type: String,
+		// 		default: "",
+		// 	},
+		// 	time: {
+		// 		type: Date,
+		// 		default: "",
+		// 	},
+		// },
 	},
 	{ timestamps: true }
 );

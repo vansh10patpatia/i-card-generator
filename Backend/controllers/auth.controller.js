@@ -20,7 +20,7 @@ class AuthController {
       res.status(200).json({
         status: "logged in",
         message: "User logged in successfully",
-        data: user,
+        data: user._doc,
       });
     } catch (err) {
       console.log(err);
@@ -34,7 +34,7 @@ class AuthController {
       res.status(200).json({
         status: "OK",
         message: "Returned users",
-        // data: users,
+        data: users,
       });
     } catch (err) {
       console.log(err);

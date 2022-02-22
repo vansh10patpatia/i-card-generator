@@ -15,10 +15,23 @@ const db = process.env.DB;
 
 const routes = require('./routes/index')
 
-mongoose.connect(db, () => {
-	console.log("Database is connected Successfully");
-});
+// mongoose.connect(db, () => {
+// 	console.log("Database is connected Successfully");
+// });
 
+
+const connectDB = async () => {
+    try {
+        await mongoose.connect(db, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+        console.log('MongoDB connected!!');
+    } catch (err) {
+        console.log('Failed to connect to MongoDB', err);
+    }
+};
+connectDB();
 
 const app = express();
 // app.use(express.static("public"));
