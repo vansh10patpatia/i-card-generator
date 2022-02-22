@@ -96,52 +96,18 @@ function Form(){
             <Typography className='heading-name' variant="h4" component="h3">
                 Fill in the details
             </Typography>
-        <Grid container spacing={2}>
-            <Grid item xs={12}  sm={4} md={4}>
-                <img src={dumy} alt="image" />
-            </Grid>
-            <Grid item xs={12}  sm={8} md={8}>
-                <Grid container spacing={-40}>
-                    <Grid item xs={12} sm={5} md={5} className='i-card-grid'>
-                    
-                        {/* <Card sx={{ maxWidth: 375 }} style={{borderRadius:13}} className='i-card' id='i-card' ref={printRef}>
-                            <img src={require('../assets/icon.png')} className='college-icon' />
-                            <Typography gutterBottom variant="h5" component="div" className='college-name'>
-                                 Graphic Era Deemed to be University
-                            </Typography>
-                            <CardMedia
-                                component="img"
-                                height="312"
-                                image={Eraimage}
-                                className="graphic-era-image"
-                            />
-                            <Avatar
-                                alt="Remy Sharp"
-                                src={image}
-                                sx={{ width: 100 }}
-                                className='user-avtar'
-                            />
+        
        
-                            <CardContent className='user-details'>
-                                <Typography gutterBottom variant="h6" component="div" className='student-name'>
-                                    {name}
-                                </Typography>
-                                <Typography variant="body2"  className='student-name'>
-                                    {phno}
-                                </Typography>
-                                <Typography variant="body2"  className='student-name'>
-                                   Id : {studentId} 
-                                </Typography>
-                                <Typography variant="body2"  className='student-name'>
-                                   {email}
-                                </Typography>
-                                <Typography variant="body2"  className='student-name'>
-                                    Session : {session}
-                                </Typography>
-                                
-                            </CardContent>
        
-                        </Card> */}
+          
+        </Box>
+                    <div className="home-page-all-containers">
+                        <div className="i-card-girl-image">
+                            <img src={require('../assets/dumyimage.png')} alt="" />
+                        </div>
+                        <div className="main-containers-for-page">
+                            <div className="i-card-wrapper">
+
                         <div className="id-card-container" id='i-card-container' ref={printRef}>
                             <div className="id-card-img-container">
                                 <img src={Eraimage} alt="" />
@@ -161,11 +127,8 @@ function Form(){
                                 <p>Session : {session}</p>
                             </div>
                         </div>
-                    </Grid>
-                    <Grid item xs={12}  sm={7} md={7}>
-                    {/* <Grid item xs={11} sm={12} md={12} > */}
-                    {/* Dhairya This is the card starting */}
-                    <Card variant="outlined" className="admin-login-card">
+                            </div>
+                        <Card variant="outlined" className="admin-login-card">
                         <CardContent>
                             <Typography variant="h4" color="text.secondary" className="admin-login-welcome" style={{fontWeight: 600}} gutterBottom>
                                 Graphic Era I card
@@ -236,17 +199,8 @@ function Form(){
                             </Typography>
                         </CardContent>
                     </Card>
-                    {/* Dhairya This is the card ending */}
-                        
-                  </Grid>
-            </Grid>
-        </Grid>
-        </Grid>
-       
-       
-          
-        </Box>
-       
+                        </div>
+                    </div>
         </>
 
     )
