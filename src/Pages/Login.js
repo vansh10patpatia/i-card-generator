@@ -8,44 +8,39 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Checkbox from '@mui/material/Checkbox';
 import {useNavigate,useLocation} from 'react-router-dom';
-// import {loginAdmin} from '../../APIs/Admin';
+import {loginAdmin} from '../APIs/login';
 import {useDispatch,useSelector} from 'react-redux';
-// import { SET_AUTH_STATUS, SET_USER_DETAILS, SET_ACCESS_TOKEN } from '../../Reducers/types';
+import { SET_AUTH_STATUS, SET_USER_DETAILS, SET_ACCESS_TOKEN } from '../Reducers/types';
 
 export default function Login(props){
 
     const dispatch = useDispatch();
-    const [state, setState] = React.useState({
-        open: false,
-        vertical: 'top',
-        horizontal: 'center',
-      });
     
-      const { vertical, horizontal, open } = state;
-    
-      const handleClick = (newState) => () => {
-        setState({ open: true, ...newState });
-      };
-    
-      const handleClose = () => {
-        setState({ ...state, open: false });
-    };
     const navigate = useNavigate();
     const [passwordError , setPasswordError] = useState(false);
     const [passwordErrorText , setPasswordErrorText] = useState("Default");
-    const [emailError , setemailError] = useState(false);
-    const [emailErrorText , setemailErrorText] = useState("Default");
+    const [useridError , setuseridError] = useState(false);
+    const [useridErrorText , setuseridErrorText] = useState("Default");
 
-    const [email,setAdminEmail] = useState('');
-    const [password,setAdminPassword] = useState('');
+    const [userid,setuserid] = useState('');
+    const [password,setPassword] = useState('');
+
+    function loginStudent(){
+        setuseridError(false);
+        setPasswordError(false);
+        loginAdmin({userid, password})
+                .then((response) =>{
+                    console.log(response);
+                });
+    }
 
     // function login(){
-    //     setemailError(false);
+    //     setuseridError(false);
     //     setPasswordError(false);
-    //     if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)  ){
-    //         setemailError(false);
+    //     if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(userid)  ){
+    //         setuseridError(false);
     //         if(password != ''){
-    //             loginAdmin({email, password})
+    //             loginAdmin({userid, password})
     //             .then((response) =>{
     //                 console.log(response);
     //                 if(response){
@@ -57,8 +52,8 @@ export default function Login(props){
     //                 else{
     //                     setPasswordError(true);
     //                     setPasswordErrorText("Invalide Credentials");
-    //                     setemailError(true);
-    //                     setemailErrorText("Invalid Credentials");
+    //                     setuseridError(true);
+    //                     setuseridErrorText("Invalid Credentials");
     //                 }
     //             })
     //             .catch((error) =>{
@@ -72,8 +67,8 @@ export default function Login(props){
     //         }
     //     }
     //     else{
-    //         setemailError(true);
-    //         setemailErrorText("Invalid Email");
+    //         setuseridError(true);
+    //         setuseridErrorText("Invalid userid");
 
     //     }
     // }
@@ -97,18 +92,18 @@ export default function Login(props){
                             </Typography>
                             <Typography variant="p" component="div" className="login-input-container">
                                 <TextField id="outlined-basic" label="User-Id" className="login-inputs" variant="outlined" placeholder="Enter your user-id..."  focused 
-                                error={emailError} helperText={emailError?(emailErrorText):(null)}
-                                onChange={(event)=>{setAdminEmail(event.target.value)}}
+                                error={useridError} helperText={useridError?(useridErrorText):(null)}
+                                onChange={(event)=>{setuserid(event.target.value)}}
                                 />
                             </Typography>
                             <Typography variant="p" component="div" className="login-input-container">
                                 <TextField id="outlined-basic" label="Password" variant="outlined" className="login-inputs" placeholder="Type your password"  focused error={passwordError} helperText={passwordError?(passwordErrorText):(null)}
-                                onChange={(event)=>{setAdminPassword(event.target.value)}}/>
+                                onChange={(event)=>{setPassword(event.target.value)}}/>
                             </Typography>
                              
                            
                             <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                                <Button variant="contained" className="continue-button" onClick={()=>console.log('continue')}>Continue</Button>
+                                <Button variant="contained" className="continue-button" onClick={()=>loginStudent()}>Continue</Button>
                             </Typography>
                         </CardContent>
                     </Card>

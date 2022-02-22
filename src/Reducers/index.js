@@ -30,7 +30,7 @@ const user_reducer = (state = initial_user_state, action) => {
 };
 
 const rootReducer = combineReducers({
-  admin: user_reducer,
+  user: user_reducer,
 });
 
 export default rootReducer;
