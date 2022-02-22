@@ -2,13 +2,10 @@ import React, { useState, useRef } from "react";
 import Navbar from "../Components/Navbar";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-// import Grid from "@mui/material/Grid";
 import CircularProgress from "@mui/material/CircularProgress";
 import { green } from "@mui/material/colors";
 import { styled } from "@mui/material/styles";
 import Eraimage from "../assets/graphicera.png";
-// import Card from "@mui/material/Card";
-// import CardContent from "@mui/material/CardContent";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import domtoimage from "dom-to-image";
@@ -103,97 +100,6 @@ function Form(props) {
               </div>
             </div>
           </div>
-          {/* <Card variant="outlined" className="admin-login-card">
-                        <CardContent>
-                            <Typography variant="h4" color="text.secondary" className="admin-login-welcome" style={{fontWeight: 600}} gutterBottom>
-                                Graphic Era I card
-                            </Typography>
-                            <Grid container xs={12} sm={12} md={12}>
-                                <Grid item xs={12}  sm={6} md={6} className='fields-container'>
-                                    <Typography variant="p" component="div" className="login-input-container">
-                                        <TextField id="outlined-basic" label="Name" className="login-inputs" variant="outlined" placeholder="Enter your name..."  focused 
-                                        value={name}
-                                        onChange={(event)=>{setName(event.target.value)}}
-                                        />
-                                    </Typography>
-                                </Grid>
-                                <Grid item xs={12}  sm={6} md={6} className='fields-container'>
-                                    <Typography variant="p" component="div" className="login-input-container">
-                                        <TextField id="outlined-basic" label="Email" variant="outlined" className="login-inputs" placeholder="Type your email..."  focused 
-                                        value={email}
-                                        onChange={(event)=>{setEmail(event.target.value)}}
-                                        />
-                                    </Typography>
-                                </Grid>
-                                <Grid item xs={12}  sm={6} md={6} className='fields-container'>
-                                    <Typography variant="p" component="div" className="login-input-container">
-                                        <TextField id="outlined-basic" label="Student Id" className="login-inputs" variant="outlined" placeholder="Enter your student id..."  focused 
-                                        value={studentId}
-                                        onChange={(event)=>{setStudentId(event.target.value)}}
-                                        />
-                                    </Typography>
-                                </Grid>
-                                <Grid item xs={12}  sm={6} md={6} className='fields-container'>
-                                    <Typography variant="p" component="div" className="login-input-container">
-                                        <TextField id="outlined-basic" label="Phone" variant="outlined" className="login-inputs" placeholder="Type your number..."  focused 
-                                        onChange={(event)=>{setPhno(event.target.value)}}
-                                        value={phno}
-                                        />
-                                    </Typography>
-                                </Grid>
-                                <Grid item xs={12}  sm={6} md={6} className='fields-container'>
-                                    <Typography variant="p" component="div" className="login-input-container">
-                                        <TextField id="outlined-basic" label="Session" className="login-inputs" variant="outlined" placeholder="Eg. 2020-24"  focused 
-                                        value={session}
-                                        onChange={(event)=>{setSession(event.target.value)}}
-                                        />
-                                    </Typography>
-                                </Grid>
-                                <Grid item xs={12}  sm={6} md={6} className='fields-container'>
-                                    <Typography variant="p" component="div" className="login-input-container">
-                                        <label htmlFor="contained-button-file">
-                                            <Input accept="image/*" id="contained-button-file" multiple type="file" onChange={(event)=>onSelectFile(event)}/>
-                                            <Button variant="contained" 
-                                             component="span">
-                                                Upload Image
-                                            </Button>
-                                        </label>
-                                        <br />
-                                        {imageName}
-                                    </Typography>
-                                </Grid>
-
-                            </Grid>
-                            
-                            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                                
-                                <Box sx={{ m: 1, position: 'relative' }}>
-                                    <Button
-                                        variant="contained"
-                                        className="continue-button"
-                                        sx={buttonSx}
-                                        disabled={loading}
-                                        onClick={()=>downloadImage()} 
-                                    >
-                                        Download
-                                    </Button>
-                                    {loading && (
-                                    <CircularProgress
-                                        size={24}
-                                        sx={{
-                                        color: green[500],
-                                        position: 'absolute',
-                                        top: '50%',
-                                        left: '50%',
-                                        marginTop: '-12px',
-                                        marginLeft: '-12px',
-                                        }}
-                                    />
-                                    )}
-                                </Box>
-                            </Typography>
-                        </CardContent>
-                    </Card> */}
           <div className="data-input-card-container">
             <h1>Graphic Era I card</h1>
             <div className="input-feild-container">
