@@ -1,12 +1,14 @@
 const jwt = require("../utils/jwt");
 const createError = require("http-errors");
 const auth = async (req, res, next) => {
-  if (!req.headers.authorization) {
-    return next(createError.Unauthorized("Access token is required"));
+  if (!req.body.headers.Authorization) {
+    throw createError.BadRequest("headersUnavailable");
+    // return next(createError.Unauthorized("Access token is required"));
   }
-  const token = req.headers.authorization.split(" ")[1];
+  const token = req.body.headers.Authorization.split(" ")[1];
   if (!token) {
-    return next(createError.Unauthorized("Access token is required"));
+    throw createError.BadRequest("invalidToken");
+    // return next(createError.Unauthorized("Access token is required"));
   }
   await jwt
     .verifyAccessToken(token)
