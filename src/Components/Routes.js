@@ -16,8 +16,8 @@ export default function Navigation() {
     const navigate = useNavigate();
     useEffect(()=>{
         //if authstatus is false redirecting to the login route
-        if(!authStatus && location.pathname.includes('/generate') && !location.pathname.includes('/login')){
-            navigate("/login");
+        if(!authStatus && location.pathname.includes('/generate')){
+            navigate("/");
         }
 
     },[authStatus]);
@@ -26,7 +26,7 @@ export default function Navigation() {
             <Routes>
                 
                 <Route exact path="/generate"  element={<Home />}/>
-                <Route exact path="/login"  element={<Login />}/>
+                <Route exact path="/"  element={<Login />}/>
                 
             </Routes>
     )

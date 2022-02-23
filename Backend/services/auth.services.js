@@ -6,7 +6,6 @@ const { Student } = require("../models");
 
 class AuthService {
   static register = async data => {
-    console.log(data);
     // return data
     const { userid} = data;
 
@@ -29,7 +28,6 @@ class AuthService {
   static login = async (data) => {
     const request = JSON.parse(JSON.stringify(data))
     const { userid, password } = JSON.parse(JSON.stringify(data));
-    console.log(request);
 
     const user = await Student.findOne({ userid: userid });
     if (!user) {
@@ -41,9 +39,13 @@ class AuthService {
       throw createError.Unauthorized("Passwords dont match");
     }
     delete user.password;
-    const accessToken = await jwt.signAccessToken(user);
-    return { ...user, accessToken };
+    const accessToken = await jwt.signAccessToken(user._doc,{expiresIn:'48h'});
+    return { ...user._doc, accessToken };
   };
+
+  static verifyAccessToken=()=>{
+
+  }
 
   static all = async () => {
     // return "hi";

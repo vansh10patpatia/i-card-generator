@@ -6,10 +6,10 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import Checkbox from '@mui/material/Checkbox';
+import CircularProgress from '@mui/material/CircularProgress';
 import {useNavigate,useLocation} from 'react-router-dom';
 import {loginAdmin} from '../APIs/login';
-import {useDispatch,useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import { SET_AUTH_STATUS, SET_USER_DETAILS, SET_ACCESS_TOKEN } from '../Reducers/types';
 
 export default function Login(props){
@@ -21,6 +21,7 @@ export default function Login(props){
     const [passwordErrorText , setPasswordErrorText] = useState("Default");
     const [useridError , setuseridError] = useState(false);
     const [useridErrorText , setuseridErrorText] = useState("Default");
+    const [loading,setLoading] = useState(false)
 
     const [userid,setuserid] = useState('');
     const [password,setPassword] = useState('');
@@ -28,70 +29,36 @@ export default function Login(props){
     function loginStudent(){
         setuseridError(false);
         setPasswordError(false);
+        setLoading(true);
         loginAdmin({userid, password})
                 .then((response) =>{
-                    console.log(response);
-                });
+                    if(response){
+                        dispatch({ type: SET_AUTH_STATUS, payload: { authStatus: true } });
+                        dispatch({ type: SET_USER_DETAILS, payload: { userDetails: response.data } });
+                        dispatch({ type: SET_ACCESS_TOKEN, payload: { accessToken: response.data.token } });
+                        navigate("/generate")
+                    }
+                    else{
+                        setPasswordError(true);
+                        setPasswordErrorText("Invalide Credentials");
+                        setuseridError(true);
+                        setuseridErrorText("Invalid Credentials");
+                    }
+                    setLoading(false)
+                })
+                .catch((err) => {
+                    console.log(err);
+                    setLoading(false)
+                })
     }
 
-    // function login(){
-    //     setuseridError(false);
-    //     setPasswordError(false);
-    //     if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(userid)  ){
-    //         setuseridError(false);
-    //         if(password != ''){
-    //             loginAdmin({userid, password})
-    //             .then((response) =>{
-    //                 console.log(response);
-    //                 if(response){
-    //                     dispatch({ type: SET_AUTH_STATUS, payload: { authStatus: true } });
-    //                     dispatch({ type: SET_USER_DETAILS, payload: { userDetails: response.userData } });
-    //                     dispatch({ type: SET_ACCESS_TOKEN, payload: { accessToken: response.token } });
-    //                     navigate("/admin/posts")
-    //                 }
-    //                 else{
-    //                     setPasswordError(true);
-    //                     setPasswordErrorText("Invalide Credentials");
-    //                     setuseridError(true);
-    //                     setuseridErrorText("Invalid Credentials");
-    //                 }
-    //             })
-    //             .catch((error) =>{
-    //                 console.error(error);
-    //             })
-    //         }
-    //         else{
-    //             setPasswordError(true);
-    //             setPasswordErrorText("Invalide password")
-
-    //         }
-    //     }
-    //     else{
-    //         setuseridError(true);
-    //         setuseridErrorText("Invalid userid");
-
-    //     }
-    // }
-    
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
     return (
         <>
-        {/* <Box sx={{ flexGrow: 1 }} className="admin-login-container">
-            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}  >
-                <Grid item xs={11} sm={6} md={6} >
-                    <img src={require('../assets/loginImage.png')} className="login-image" />
-                </Grid>
-                <Grid item xs={11} sm={5} md={5} className="admin-login-screen-grid">
-                    
-                    
-                        
-                </Grid>
-            </Grid>
-        </Box> */}
         <div className="login-page-container">
-        <div className="login-page-img-container">
-        <img src={require('../assets/loginImage.png')}   />
-        </div>
+            <div className="login-page-img-container">
+                <img src={require('../assets/loginImage.png')}   />
+            </div>
         <div className="login-page-card-container">
             
         <Card variant="outlined" className="admin-login-screen-card">
@@ -109,13 +76,34 @@ export default function Login(props){
                                 />
                             </Typography>
                             <Typography variant="p" component="div" className="login-input-container">
-                                <TextField id="outlined-basic" label="Password" variant="outlined" className="login-inputs" placeholder="Type your password"  focused error={passwordError} helperText={passwordError?(passwordErrorText):(null)}
+                                <TextField id="outlined-basic" type="password" label="Password" variant="outlined" className="login-inputs" placeholder="Type your password"  focused error={passwordError} helperText={passwordError?(passwordErrorText):(null)}
                                 onChange={(event)=>{setPassword(event.target.value)}}/>
                             </Typography>
                              
                            
                             <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                                <Button variant="contained" className="continue-button" onClick={()=>loginStudent()}>Continue</Button>
+                                <Box sx={{ m: 1, position: 'relative' }}>
+                                    <Button
+                                        variant="contained"
+                                        className="continue-button"
+                                        disabled={loading}
+                                        onClick={()=>loginStudent()}
+                                        >
+                                        Continue
+                                    </Button>
+                                    {loading && (
+                                    <CircularProgress
+                                        size={24}
+                                        sx={{
+                                            position: 'absolute',
+                                            top: '50%',
+                                            left: '50%',
+                                            marginTop: '-12px',
+                                            marginLeft: '-12px',
+                                        }}
+                                    />
+                                    )}
+                                </Box>
                             </Typography>
                         </CardContent>
                     </Card>

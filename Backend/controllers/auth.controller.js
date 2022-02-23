@@ -1,4 +1,5 @@
 const auth = require("../services/auth.services");
+const middleware = require("../middleware/auth")
 
 class AuthController {
   static register = async (req, res, next) => {
@@ -20,13 +21,27 @@ class AuthController {
       res.status(200).json({
         status: "logged in",
         message: "User logged in successfully",
-        data: user._doc,
+        data: user,
       });
     } catch (err) {
       console.log(err);
       next(err);
     }
   };
+
+  static verifyToken = async (req, res, next) => {
+    try {
+      const user = await middleware(req,next);
+      res.status(200).json({
+        status: "verified",
+        message: "Access Token verified",
+        data: req.user.payload,
+      });
+    } catch (err) {
+      console.log(err);
+      next(err);
+    }
+  }
 
   static all = async (req, res, next) => {
     try {
@@ -41,6 +56,7 @@ class AuthController {
       next(err);
     }
   };
+
 }
 
 module.exports = AuthController;

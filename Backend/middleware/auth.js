@@ -5,9 +5,8 @@ const auth = async (req, res, next) => {
     return next(createError.Unauthorized("Access token is required"));
   }
   const token = req.headers.authorization.split(" ")[1];
-  // console.log(token);
   if (!token) {
-    return next(createError.Unauthorized());
+    return next(createError.Unauthorized("Access token is required"));
   }
   await jwt
     .verifyAccessToken(token)

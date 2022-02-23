@@ -315,4 +315,23 @@ body{
       .login-page-img-container img{width: 80vw;}
       .login-page-card-container{z-index: 1;}
       .login-page-card-container{width: 85%;}
+      .girl-card-image{
+        margin-top:0px !important;
+      }
+  }
+
+  .user-box{
+    position: absolute;
+    right: 10px;
+  }
+
+  .girl-card-image{
+    margin-top:-200px
+  }
+
+  .geu-name{
+    text-shadow: -1px 1px 0 #000,
+                1px 1px 0 #000,
+                1px -1px 0 #000,
+                -1px -1px 0 #000;
   }
