@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
+// import Card from "@mui/material/Card";
+// import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
+// import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useNavigate } from "react-router-dom";
@@ -115,9 +115,9 @@ export default function Login(props) {
                         </CardContent>
                     </Card> */}
 
-                            <div className="data-input-card-container login-input-container">
+                        <div className="data-input-card-container login-input-container-login">
                             <h1>Hey, Welcome Back!</h1>
-                            <h1> Log in to your account to continue</h1>
+                            <h2> Log in to continue</h2>
                             <div className="input-feild-container">
                                 <div className="textOnInput">
 
