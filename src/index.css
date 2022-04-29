@@ -250,6 +250,7 @@ body {
 .id-card-text-container {
   color: #fff;
   padding-bottom: 9px;
+  margin-top: 55px;
 }
 .id-card-container {
   width: 430px;
@@ -560,7 +561,7 @@ body {
   /* .data-input-card-container{width: 94%;} */
   .textOnInput{width: 100%;}
   .input-feild-container .textOnInput:last-child{margin-bottom: 0;}
-  .input-feild-container .login-input-container{margin-bottom: 0 !important;}
+  .input-feild-container .login-input-container-login{margin-bottom: 0 !important;}
 }
 
 
@@ -582,5 +583,5 @@ body {
   object-fit: contain;
   position: unset;bottom: unset;left: unset;
 }
-.login-input-container{width: 100%;padding-top: 30px;padding-bottom: 30px;margin-top: 75px !important; }
-.login-input-container .textOnInput{width: 100%;}
+.login-input-container-login{width: 100%;padding-top: 30px;padding-bottom: 30px;margin-top: 75px !important; }
+.login-input-container-login .textOnInput{width: 100%;}
